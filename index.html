@@ -4,15 +4,96 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Siwach's Page</title>
+    <style>
+      body {
+        background: rgb(238, 174, 202);
+        background: radial-gradient(
+          circle,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 187, 233, 1) 100%
+        );
+      }
+      p {
+        font-size: small;
+        margin-top: 0px;
+      }
+      .profile-header {
+        background-color: rgb(39, 5, 5);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        padding: 4vh;
+        position: relative;
+        text-align: center;
+      }
+      .coffee-div {
+        font-family: "Merriweather", serif;
+        padding-left: 4vh;
+      }
+      .football-div {
+        font-family: "Merriweather", serif;
+        padding-left: 4vh;
+      }
+      .contact-div {
+        font-family: "Merriweather", serif;
+        padding-left: 4vh;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hi &#60;3</h1>
-    <h2>Welcome to my page!</h2>
-    <br />
-    <img style="width: 25%; height: 25%" src="image/cat.jpg" alt="cat.jpg" />
-    <br />
-    <br />
-    <p>Created by Siwach Toprasert 6316801</p>
+    <table>
+      <tbody>
+        <tr>
+          <td style="width: 50%">
+            <div class="profile-header">
+              <img
+                style="border-radius: 50%; width: 40%"
+                src="image/cat.jpg"
+                alt="cat.jpg"
+              />
+              <h1 id="myName">Siwach Toprasert</h1>
+              <p style="font-family: 'Merriweather', serif; font-style: italic">
+                Computer Science Student
+              </p>
+              <button class="change-btn" onclick="changeName()">Change</button>
+            </div>
+          </td>
+          <td style="background-color: white">
+            <div class="coffee-div">
+              <h2>Coffee Enthusiast</h2>
+              <p>Love brewing coffee.</p>
+            </div>
+            <div class="football-div">
+              <h2>Football Lover</h2>
+              <p>COYG</p>
+            </div>
+            <div class="contact-div">
+              <h2>Contacts</h2>
+              <p>Email: u6316801@au.edu</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      var span = document.getElementById("myName");
+      if (span.innerHTML == "Siwach Toprasert") {
+        span.innerHTML = "Pan";
+      } else {
+        span = "Siwach Toprasert";
+      }
+    </script>
   </body>
 </html>
