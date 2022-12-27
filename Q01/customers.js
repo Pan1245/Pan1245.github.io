@@ -46,7 +46,7 @@ function addCustomer() {
     let newCustomer = customers[newCustomerIndex]
 
     let dataStr = `<tr id="row${newCustomerIndex}">
-        <td><img src='images/bin.jpg' class='icon' onclick="deleteCustomer(${newCustomerIndex})"> ${newCustomer.name}</td>
+        <td><img src='images/bin.png' class='icon' onclick="deleteCustomer(${newCustomerIndex})"> ${newCustomer.name}</td>
         <td>${newCustomer.email}</td>
         <td>${newCustomer.phone}</td>
     </tr>`
