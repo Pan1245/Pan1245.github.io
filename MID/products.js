@@ -104,21 +104,30 @@ function addProduct() {
   let newProductIndex = products.length - 1;
   let newProduct = products[newProductIndex];
 
-  let dataStr = `<tr id="row${newProductIndex}">
-        <td style="width:40px"><img src='images/bin.png' class='icon' onclick="deleteProduct(${newProductIndex})"></td>
-        <td>${parseFloat(newProduct.qty)}</td>
-        <td>${newProduct.item}</td>
-        <td>${parseFloat(newProduct.ppu).toFixed(2)}</td>
-        <td>${parseFloat(newProduct.discount).toFixed(2)}</td>
-        <td>${newProduct.amount}</td>
-        <td>${newProduct.amountAfterDiscount}</td>
-    </tr>`;
-  $("#data-table tr:last").after(dataStr);
-  totalDiscount = totalDiscount + parseFloat(newProduct.discount);
-  $("#totalDiscount").html(totalDiscount.toFixed(2));
-  totalAmount = totalAmount + parseFloat(newProduct.amount);
-  $("#totalAmount").html(totalAmount.toFixed(2));
-  totalAmountAfterDiscount =
-    totalAmountAfterDiscount + parseFloat(newProduct.amountAfterDiscount);
-  $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+  for (let i in products) {
+    if (
+      products[i].item === newProduct.item &&
+      products[i].ppu != newProduct.ppu
+    ) {
+      let dataStr = `<tr id="row${newProductIndex}">
+      <td style="width:40px"><img src='images/bin.png' class='icon' onclick="deleteProduct(${newProductIndex})"></td>
+      <td>${parseFloat(newProduct.qty)}</td>
+      <td>${newProduct.item}</td>
+      <td>${parseFloat(newProduct.ppu).toFixed(2)}</td>
+      <td>${parseFloat(newProduct.discount).toFixed(2)}</td>
+      <td>${newProduct.amount}</td>
+      <td>${newProduct.amountAfterDiscount}</td>
+      </tr>`;
+      $("#data-table tr:last").after(dataStr);
+      totalDiscount = totalDiscount + parseFloat(newProduct.discount);
+      $("#totalDiscount").html(totalDiscount.toFixed(2));
+      totalAmount = totalAmount + parseFloat(newProduct.amount);
+      $("#totalAmount").html(totalAmount.toFixed(2));
+      totalAmountAfterDiscount =
+        totalAmountAfterDiscount + parseFloat(newProduct.amountAfterDiscount);
+      $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+    } else {
+      break;
+    }
+  }
 }
