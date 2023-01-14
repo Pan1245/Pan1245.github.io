@@ -4,7 +4,7 @@ $(document).ready(function () {
   console.log("ready!");
   // load data
   $.ajax({
-    url: "data.json",
+    url: "customers.json",
   }).done(function (data) {
     //$(this).addClass("done");
     console.log("DONE", data);
@@ -12,7 +12,8 @@ $(document).ready(function () {
       // save the data record into global variable
       customers.push(data[d]);
       let dataStr = `<tr id="row${d}">
-                <td><img src='images/bin.png' class='icon' onclick="deleteCustomer(${d})"> ${data[d].name}</td>
+                <td style="width:40px"><img src='images/bin.png' class='icon' onclick="deleteCustomer(${d})"></td>
+                <td>${data[d].name}</td>
                 <td>${data[d].email}</td>
                 <td>${data[d].phone}</td>
             </tr>`;
@@ -44,7 +45,8 @@ function addCustomer() {
   let newCustomer = customers[newCustomerIndex];
 
   let dataStr = `<tr id="row${newCustomerIndex}">
-        <td><img src='images/bin.png' class='icon' onclick="deleteCustomer(${newCustomerIndex})"> ${newCustomer.name}</td>
+        <td style="width:40px"><img src='images/bin.png' class='icon' onclick="deleteCustomer(${newCustomerIndex})"></td>
+        <td>${newCustomer.name}</td>
         <td>${newCustomer.email}</td>
         <td>${newCustomer.phone}</td>
     </tr>`;
